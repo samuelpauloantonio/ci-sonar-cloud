@@ -3,7 +3,7 @@ on:
   pull_request:
     branches:
       - develop
-      - main
+
 jobs:
   run-ci:
     runs-on: ubuntu-latest
@@ -13,4 +13,12 @@ jobs:
         with:
           node-version: 16
       - run: npm install
-      - run: npm run test  
+      - run: npm run test
+    ## add sonar cloud
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
+
+      
