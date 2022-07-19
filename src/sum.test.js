@@ -25,6 +25,6 @@ describe('should be able to make calc', () => {
   test('should be able to mul dv numbers', () => {
     const result = dv(2,4)
   
-    expect(result).toEqual(1.5)
+    expect(result).toEqual(0.5)
   })
 })
